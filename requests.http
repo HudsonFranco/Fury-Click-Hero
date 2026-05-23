@@ -1,0 +1,28 @@
+# ====================================================================
+# ATENÇÃO: Para realizar os testes abaixo, certifique-se de que os 
+# containers Docker (Postgres/Redis) estão no ar e o servidor local
+# está em execução através do comando: npm run dev
+# ====================================================================
+
+### Ingestão de Violação de Anúncio
+POST http://localhost:3000/webhook/violation
+Content-Type: application/json
+
+{
+  "adId": "ad_9988",
+  "tenantId": "tenant_xyz",
+  "violationType": "BRAND_VIOLATION",
+  "severity": "HIGH",
+  "detectedAt": "2026-05-23T15:30:00Z"
+}
+
+###
+
+### Consulta de Status do Job (Aguarde alguns segundos após enviar o POST)
+# O formato do ID sempre será: takedown:{tenantId}:{adId}
+GET http://localhost:3000/jobs/takedown:tenant_xyz:ad_9988
+
+###
+
+### Health Check da API
+GET http://localhost:3000/status
