@@ -154,3 +154,7 @@ npm run typecheck
 # Execução dos testes de integração e concorrência real
 npm test
 ```
+
+### 🤖 Integração Contínua (CI/CD)
+
+O repositório conta com um fluxo de **GitHub Actions** (`.github/workflows/ci.yml`) que atua como barreira de segurança. A cada *push* ou *pull request* na branch principal, a esteira automatizada sobe os containers do Postgres e Redis em nuvem, executa as migrações, valida a tipagem e roda todos os testes. Só é possível fazer deploy se a pipeline aprovar 100% da suíte.
