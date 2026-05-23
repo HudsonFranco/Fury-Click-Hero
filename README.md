@@ -109,6 +109,8 @@ npm run dev
 
 ## 🎯 Exemplos de Uso
 
+> 💡 **Dica para Avaliadores:** Para facilitar os testes manuais da API, disponibilizamos um arquivo [`requests.http`](./requests.http) na raiz do projeto. Se estiver utilizando o VS Code com a extensão *REST Client* (ou IntelliJ), basta abrir o arquivo e clicar em "Send Request" para testar todas as rotas (POST e GET) diretamente do editor, sem precisar configurar o Postman.
+
 ### Ingestão de Violação (`POST /webhook/violation`)
 
 ```json
